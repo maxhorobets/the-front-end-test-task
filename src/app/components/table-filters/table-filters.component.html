@@ -1,0 +1,72 @@
+<mat-form-field>
+  <input
+    matInput
+    class="form-field"
+    [formControl]="nameFilterControl"
+    placeholder="Name Filter"
+  />
+  @if (nameFilterControl.value) {
+  <button
+    matSuffix
+    mat-icon-button
+    aria-label="Clear name"
+    (click)="clearNameFilter()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  }
+</mat-form-field>
+
+<mat-form-field>
+  <input
+    matInput
+    class="form-field"
+    [formControl]="domainFilterControl"
+    placeholder="Domain Filter"
+  />
+  @if (domainFilterControl.value) {
+  <button
+    matSuffix
+    mat-icon-button
+    aria-label="Clear domain"
+    (click)="clearDomainFilter()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  }
+</mat-form-field>
+
+<mat-form-field>
+  <input
+    matInput
+    class="form-field"
+    [formControl]="categoryFilterControl"
+    placeholder="Category Filter"
+  />
+  @if (categoryFilterControl.value) {
+  <button
+    matSuffix
+    mat-icon-button
+    aria-label="Clear category"
+    (click)="clearCategoryFilter()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  }
+</mat-form-field>
+
+<section class="price-settings">
+  <span class="price-title">Price:</span>
+
+  <div class="slider-wrap">
+    <mat-slider [min]="priceConfig.min" [max]="priceConfig.max">
+      <input [formControl]="minPriceFilterControl" matSliderStartThumb />
+      <input [formControl]="maxPriceFilterControl" matSliderEndThumb />
+    </mat-slider>
+
+    <span>
+      {{ minPriceFilterControl.value | currency }} -
+      {{ maxPriceFilterControl.value | currency }}
+    </span>
+  </div>
+</section>

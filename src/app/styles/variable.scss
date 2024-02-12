@@ -1,0 +1,9 @@
+$filters-height: 120px;
+$pagination-height: 60px;
+$table-height: calc(100vh - $filters-height - $pagination-height);
+
+$filters-height-tablet: 175px;
+$pagination-height-tablet: 60px;
+$table-height-tablet: calc(
+  100vh - $filters-height-tablet - $pagination-height-tablet
+);

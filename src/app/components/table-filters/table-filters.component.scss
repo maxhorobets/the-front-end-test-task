@@ -1,0 +1,51 @@
+@import "../../styles/variable.scss";
+
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  height: $filters-height;
+  background-color: var(--mdc-filled-text-field-container-color);
+
+  mat-form-field {
+    padding: 0 1rem;
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+
+  .price-settings {
+    padding: 0 1rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    .price-title {
+      font-size: 1rem;
+      color: var(--mdc-filled-text-field-input-text-placeholder-color);
+    }
+
+    .slider-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      width: 95%;
+
+      mat-slider {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  :host {
+    height: $filters-height-tablet;
+  }
+}

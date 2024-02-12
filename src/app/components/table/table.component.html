@@ -1,0 +1,48 @@
+<section class="table-wrap">
+  @if (isLoading$ | async) {
+  <div class="loading-shade">
+    <mat-spinner></mat-spinner>
+  </div>
+  }
+
+  <table
+    [style.visibility]="(isLoading$ | async) ? 'hidden' : 'visible'"
+    mat-table
+    #table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+  >
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Domain Column -->
+    <ng-container matColumnDef="domain">
+      <th mat-header-cell *matHeaderCellDef>Domain</th>
+      <td mat-cell *matCellDef="let element">{{ element.domain }}</td>
+    </ng-container>
+
+    <!-- Categoy Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Category</th>
+      <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell no-data" [attr.colspan]="displayedColumns.length">
+        No data matching the filter.
+      </td>
+    </tr>
+  </table>
+</section>
